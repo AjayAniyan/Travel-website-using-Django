@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title> Login </title>
+
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <div class="wrap">
+		<div class="avatar">
+      <img src="http://cdn.ialireza.me/avatar.png">
+		</div>
+<form action="login" method="post">
+	    {% csrf_token %}
+
+		<input type="text" name="username" placeholder="username" required>
+		<div class="bar">
+			<i></i>
+		</div>
+		<input type="password" name="password" placeholder="password" required>
+		<a href="" class="forgot_link">forgot ?</a>
+		<button>Sign in</button>
+	</div>
+</form>
+  {% for msg in messages %}
+  <h2>{{msg}}</h2>
+  {% endfor %}
+
+
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>
